@@ -1,0 +1,13 @@
+oma:
+  miscellaneous:
+    invalid_permission: "&3&lOma &8» &cYou do not have permission to execute this command."
+    invalid_target: "&3&lOma &8» &cThe player you have entered is not online."
+    no_console: "&3&lOma &8» &cYou cannot execute this command in console."
+  gmc:
+    update_gmc: "&3&lOma &8» &7Your game-mode has been set to Creative."
+    usage_gmc: "&3&lOma &8» &cUsage: /gmc (&bPlayer&c)."
+    already_gmc: "&3&lOma &8» &cYou are already in game-mode Creative."
+  playerjoin:
+    join: "&3&lOma &8» &7%player% joined."
+      sound: null
+      hover: "%player% joined on %date% at %time%."

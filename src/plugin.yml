@@ -1,0 +1,8 @@
+name: Oma
+author: Pvbble
+version: 1.0
+main: com.oma.Main
+commands:
+  gmc:
+    usage: gmc
+    aliases: [gamemode1, gamemodec, gm1]
