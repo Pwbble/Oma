@@ -1,19 +1,32 @@
 package com.oma.handlers;
 
-import com.oma.Main;
 import com.oma.enums.Message;
+import com.oma.miscellaneous.Config;
+import com.sun.istack.internal.NotNull;
 import org.bukkit.command.CommandSender;
 import java.util.function.Function;
 
 public class MessageHandler {
 
-    public static boolean sendMessage(CommandSender sender, Message path, Function<String, String> replace) {
+    private final Config config;
+    private static MessageHandler Instance;
 
-        sender.sendMessage(replace.apply(Utils.chatColor(Main.main.getConfig().getString(path.getPath()))));
+    public MessageHandler(Config config) {
+        if (config == null) throw new NullPointerException();
+        Instance = this;
+        this.config = config;
+    }
+
+    public static MessageHandler createInstance() {
+        return Instance;
+    }
+
+    public boolean sendMessage(@NotNull Message path, @NotNull Function<String, String> replace, @NotNull CommandSender sender) {
+        sender.sendMessage(replace.apply(Utils.chatColor(config.getString(path.getPath()))));
         return true;
     }
 
-    public static boolean sendMessage(CommandSender sender, Message path) {
-        return sendMessage(sender, path, Function.identity());
+    public boolean sendMessage(@NotNull Message path, @NotNull CommandSender sender) {
+        return sendMessage(path, Function.identity(), sender);
     }
 }

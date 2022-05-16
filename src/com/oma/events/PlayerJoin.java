@@ -10,9 +10,10 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class PlayerJoin implements Listener {
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
+    public void onEvent(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        MessageHandler.sendMessage(player, Message.JOIN);
+        event.setJoinMessage(null);
+        MessageHandler.createInstance().sendMessage(Message.JOIN, player);
     }
 }

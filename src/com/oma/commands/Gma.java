@@ -1,4 +1,13 @@
 package com.oma.commands;
 
-public class Gma {
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+
+public class Gma implements CommandExecutor {
+    @Override
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+
+        return true;
+    }
 }

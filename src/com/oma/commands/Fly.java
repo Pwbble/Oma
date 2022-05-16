@@ -10,29 +10,29 @@ import org.bukkit.entity.Player;
 
 public class Fly implements CommandExecutor {
     // Usage: /fly arg[0]:Player
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String string, String[] arg) {
-
         if (!(sender.hasPermission("oma.command.fly") || sender.hasPermission("oma.*")))
-            return MessageHandler.sendMessage(sender, Message.INVALID_PERMISSION);
-        if (arg.length == 0) { // If arg[0] is null. ex: /fly
-            if (!(sender instanceof Player)) return MessageHandler.sendMessage(sender, Message.USAGE_FLY);
+            return MessageHandler.createInstance().sendMessage(Message.INVALID_PERMISSION, sender);
+        if (arg.length == 0) { // If arg[0] is null... /fly
+            if (!(sender instanceof Player))
+                return MessageHandler.createInstance().sendMessage(Message.USAGE_FLY, sender);
             toggleFlight((Player) sender);
         }
-        // If arg[0] is specified. ex: /fly Pvbble
+        // If arg[0] is specified... /fly Pvbble
         Player target = Bukkit.getServer().getPlayer(arg[0]);
         toggleFlight(target);
-        if (target.getAllowFlight()) return MessageHandler.sendMessage(sender, Message.DISABLE_FLY); // Change Message
-        return MessageHandler.sendMessage(sender, Message.ENABLE_FLY); // Change Message
+        if (target.getAllowFlight())
+            return MessageHandler.createInstance().sendMessage(Message.DISABLE_FLY, sender); // Change Message
+        return MessageHandler.createInstance().sendMessage(Message.ENABLE_FLY, sender); // Change Message
     }
 
-    public void toggleFlight(Player player) {
+    private boolean toggleFlight(Player player) {
         if (player.getAllowFlight()) {
             player.setAllowFlight(false);
-            return MessageHandler.sendMessage(player, Message.DISABLE_FLY);
+            return MessageHandler.createInstance().sendMessage(Message.DISABLE_FLY, player);
         }
         player.setAllowFlight(true);
-        return MessageHandler.sendMessage(player, Message.ENABLE_FLY);
+        return MessageHandler.createInstance().sendMessage(Message.ENABLE_FLY, player);
     }
 }

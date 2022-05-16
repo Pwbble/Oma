@@ -3,6 +3,20 @@ author: Pvbble
 version: 1.0
 main: com.oma.Main
 commands:
+  fly:
+    usage: fly
+  gma:
+    usage: gma
+    aliases: [gamemode2, gamemodea, gm2]
   gmc:
     usage: gmc
     aliases: [gamemode1, gamemodec, gm1]
+  gms:
+    usage: gms
+    aliases: [gamemode0, gamemodes, gm0]
+  gmsp:
+    usage: gmsp
+    aliases: [gamemode3, gamemodesp, gm3]
+  worlds:
+    usage: worlds
+    aliases: [listworlds, worldlist]

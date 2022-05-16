@@ -8,23 +8,29 @@ import java.util.List;
 
 public class BuildmodeHandler {
 
-    private List<Player> buildmode = new ArrayList<>();
+    private static BuildmodeHandler Instance;
+
+    public static BuildmodeHandler createInstance() {
+        return Instance;
+    }
+
+    private List<Player> BuildMode = new ArrayList<>();
 
     public void toggleOn(Player player) {
-        buildmode.add(player);
+        BuildMode.add(player);
         Utils.clearInventory(player);
         Utils.clearPotionEffects(player);
         player.setGameMode(GameMode.CREATIVE);
     }
 
     public void toggleOff(Player player) {
-        buildmode.remove(player);
+        BuildMode.remove(player);
         Utils.clearInventory(player);
         Utils.clearPotionEffects(player);
         player.setGameMode(GameMode.SURVIVAL);
     }
 
     public boolean listContains(Player player) {
-        return buildmode.contains(player);
+        return BuildMode.contains(player);
     }
 }
