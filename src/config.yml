@@ -14,6 +14,7 @@ oma:
     update_gamemode: "&3&lOma &8» &7Your gamemode has been set to %gamemode%."
     usage_gamemode: "&3&lOma &8» &cUsage: /%command% (&bPlayer&c)."
   world:
+    world: "&3&lOma &8» &7You were teleported to world \"&b%world%&7\"."
   worlds:
     worlds: "&3&lOma &8» &7Worlds: &b%worlds%&7."
   playerjoin:

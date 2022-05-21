@@ -3,13 +3,19 @@ package com.oma.handlers;
 import com.oma.enums.Message;
 import com.oma.miscellaneous.Config;
 import com.sun.istack.internal.NotNull;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import java.util.function.Function;
 
 public class MessageHandler {
 
-    private final Config config;
     private static MessageHandler Instance;
+
+    public static MessageHandler createInstance() {
+        return Instance;
+    }
+
+    private final Config config;
 
     public MessageHandler(Config config) {
         if (config == null) throw new NullPointerException();
@@ -17,16 +23,21 @@ public class MessageHandler {
         this.config = config;
     }
 
-    public static MessageHandler createInstance() {
-        return Instance;
-    }
-
-    public boolean sendMessage(@NotNull Message path, @NotNull Function<String, String> replace, @NotNull CommandSender sender) {
-        sender.sendMessage(replace.apply(Utils.chatColor(config.getString(path.getPath()))));
+    public boolean sendMessage(@NotNull Message message, @NotNull Function<String, String> replace, @NotNull CommandSender sender) {
+        sender.sendMessage(Utils.chatColor(replace.apply(config.getString(message.getPath()))));
         return true;
     }
 
-    public boolean sendMessage(@NotNull Message path, @NotNull CommandSender sender) {
-        return sendMessage(path, Function.identity(), sender);
+    public boolean sendMessage(@NotNull Message message, @NotNull CommandSender sender) {
+        return sendMessage(message, Function.identity(), sender);
+    }
+
+    public boolean sendBroadcast(@NotNull Message message, @NotNull Function<String, String> replace) {
+        Bukkit.broadcastMessage(Utils.chatColor(replace.apply(config.getString(message.getPath()))));
+        return true;
+    }
+
+    public boolean sendBroadcast(@NotNull Message message) {
+        return sendBroadcast(message, Function.identity());
     }
 }

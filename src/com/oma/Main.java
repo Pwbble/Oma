@@ -2,12 +2,14 @@ package com.oma;
 
 import com.oma.commands.*;
 import com.oma.events.*;
+import com.oma.handlers.MessageHandler;
 import com.oma.miscellaneous.Config;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
     public static Main main;
+    private MessageHandler messageHandler;
     private Config config;
 
     @Override
@@ -15,6 +17,7 @@ public class Main extends JavaPlugin {
         main = this;
         loadEvents();
         loadCommands();
+        loadHandlers();
         loadFiles();
     }
 
@@ -34,6 +37,10 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerGameModeChange(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new PlayerQuit(), this);
+    }
+
+    private void loadHandlers() {
+        messageHandler = new MessageHandler(config);
     }
 
     private void loadFiles() {
