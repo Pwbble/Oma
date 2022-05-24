@@ -16,6 +16,11 @@ public enum Message {
     UPDATE_GAMEMODE("oma.gamemode.update_gamemode"),
     USAGE_GAMEMODE("oma.gamemode.usage_gamemode"),
 
+    ALREADY_WORLD("oma.send.already_world"),
+    INVALID_WORLD("oma.send.invalid_world"),
+    TELEPORT_WORLD("oma.send.teleport_world"),
+    USAGE_SEND("oma.send.usage_send"),
+
     WORLDS("oma.worlds.worlds"),
 
     JOIN("oma.playerjoin.join"),

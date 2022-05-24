@@ -8,7 +8,6 @@ public class PlayerQuit implements Listener {
 
     @EventHandler
     public void onEvent(PlayerQuitEvent event) {
-
         event.setQuitMessage(null);
     }
 }

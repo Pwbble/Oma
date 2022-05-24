@@ -13,6 +13,11 @@ oma:
     target_update_gamemode: "&3&lOma &8» &7%target%s gamemode has been set to %gamemode%."
     update_gamemode: "&3&lOma &8» &7Your gamemode has been set to %gamemode%."
     usage_gamemode: "&3&lOma &8» &cUsage: /%command% (&bPlayer&c)."
+  send:
+    already_world: "&3&lOma &8» &cYou are already in world \"&b%world%&c\"."
+    invalid_world: "&3&lOma &8» &cThe world you have entered is not valid."
+    teleport_world: "&3&lOma &8» &7%target% was teleported to world \"&b%world%&7\"."
+    usage_send: "&3&lOma &8» &cUsage: /send <target> <world>"
   world:
     world: "&3&lOma &8» &7You were teleported to world \"&b%world%&7\"."
   worlds:

@@ -10,11 +10,6 @@ import java.util.function.Function;
 public class MessageHandler {
 
     private static MessageHandler Instance;
-
-    public static MessageHandler createInstance() {
-        return Instance;
-    }
-
     private final Config config;
 
     public MessageHandler(Config config) {
@@ -23,13 +18,8 @@ public class MessageHandler {
         this.config = config;
     }
 
-    public boolean sendMessage(@NotNull Message message, @NotNull Function<String, String> replace, @NotNull CommandSender sender) {
-        sender.sendMessage(Utils.chatColor(replace.apply(config.getString(message.getPath()))));
-        return true;
-    }
-
-    public boolean sendMessage(@NotNull Message message, @NotNull CommandSender sender) {
-        return sendMessage(message, Function.identity(), sender);
+    public static MessageHandler createInstance() {
+        return Instance;
     }
 
     public boolean sendBroadcast(@NotNull Message message, @NotNull Function<String, String> replace) {
@@ -39,5 +29,14 @@ public class MessageHandler {
 
     public boolean sendBroadcast(@NotNull Message message) {
         return sendBroadcast(message, Function.identity());
+    }
+
+    public boolean sendMessage(@NotNull Message message, @NotNull Function<String, String> replace, @NotNull CommandSender sender) {
+        sender.sendMessage(Utils.chatColor(replace.apply(config.getString(message.getPath()))));
+        return true;
+    }
+
+    public boolean sendMessage(@NotNull Message message, @NotNull CommandSender sender) {
+        return sendMessage(message, Function.identity(), sender);
     }
 }
