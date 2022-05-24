@@ -14,6 +14,10 @@ public class BuildmodeHandler {
         return Instance;
     }
 
+    public BuildmodeHandler() {
+        Instance = this;
+    }
+
     private List<Player> BuildMode = new ArrayList<>();
 
     public void toggleOn(Player player) {

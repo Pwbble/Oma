@@ -2,6 +2,8 @@ package com.oma;
 
 import com.oma.commands.*;
 import com.oma.events.*;
+import com.oma.handlers.BuildmodeHandler;
+import com.oma.handlers.GameModeHandler;
 import com.oma.handlers.MessageHandler;
 import com.oma.miscellaneous.Config;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,15 +19,17 @@ public class Main extends JavaPlugin {
         loadEvents();
         loadCommands();
         loadFiles();
-        new MessageHandler(config);
     }
 
     private void loadCommands() {
+        // getCommand("build").setExecutor(new Build());
+        // getCommand("createworld").setExecutor(new CreateWorld());
         getCommand("fly").setExecutor(new Fly());
         getCommand("gma").setExecutor(new Gma());
         getCommand("gmc").setExecutor(new Gmc());
         getCommand("gms").setExecutor(new Gms());
         getCommand("gmsp").setExecutor(new Gmsp());
+        getCommand("send").setExecutor(new Send());
         // getCommand("world").setExecutor(new World());
         getCommand("worlds").setExecutor(new Worlds());
     }
@@ -40,5 +44,8 @@ public class Main extends JavaPlugin {
 
     private void loadFiles() {
         config = new Config(this, getDataFolder(), "config.yml", "config.yml");
+        new BuildmodeHandler();
+        new GameModeHandler();
+        new MessageHandler(config);
     }
 }

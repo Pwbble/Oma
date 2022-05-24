@@ -17,6 +17,8 @@ commands:
   gmsp:
     usage: gmsp
     aliases: [gamemode3, gamemodesp, gm3]
+  send:
+    usage: /send
   worlds:
     usage: worlds
     aliases: [listworlds, worldlist]
