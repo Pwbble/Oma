@@ -1,26 +1,31 @@
 oma:
   miscellaneous:
-    invalid_permission: "&3&lOma &8» &cYou do not have permission to execute this command."
-    invalid_target: "&3&lOma &8» &cThe player you have entered is not online."
-    no_console: "&3&lOma &8» &cYou cannot execute this command in console."
+    invalid_permission: "&3Oma &8» &cYou do not have permission to execute this command."
+    invalid_target: "&3Oma &8» &cThe player you have entered is not online."
+    no_console: "&3Oma &8» &cYou cannot execute this command in console."
+  config:
+    edit_config: "&3Oma &8» &7The configuration message at %path% has been updated to %string%."
+    invalid_path: "&3Oma &8» &cThe path you have entered is not valid."
+    reset_config: "&3Oma &8» &7The configuration file has been reset."
+    usage_config: "&3Oma &8» &cUsage: /config <reload | edit> [edit:<path> <updated message>]."
   fly:
-    disable_fly: "&3&lOma &8» &7Your flight has been &cdisabled&7."
-    enable_fly: "&3&lOma &8» &7Your flight has been &aenabled&7."
-    usage_fly: "&3&lOma &8» &cUsage: /fly (&bPlayer&c)."
+    disable_fly: "&3Oma &8» &7Your flight has been &cdisabled&7."
+    enable_fly: "&3Oma &8» &7Your flight has been &aenabled&7."
+    usage_fly: "&3Oma &8» &cUsage: /fly (&bPlayer&c)."
   gamemode:
-    already_gamemode: "&3&lOma &8» &cYou are already in gamemode %gamemode%."
-    target_already_gamemode: "&3&lOma &8» &c%target% is already in gamemode %gamemode%."
-    target_update_gamemode: "&3&lOma &8» &7%target%s gamemode has been set to %gamemode%."
-    update_gamemode: "&3&lOma &8» &7Your gamemode has been set to %gamemode%."
-    usage_gamemode: "&3&lOma &8» &cUsage: /%command% (&bPlayer&c)."
+    already_gamemode: "&3Oma &8» &cYou are already in gamemode %gamemode%."
+    target_already_gamemode: "&3Oma &8» &c%target% is already in gamemode %gamemode%."
+    target_update_gamemode: "&3Oma &8» &7%target%s gamemode has been set to %gamemode%."
+    update_gamemode: "&3Oma &8» &7Your gamemode has been set to %gamemode%."
+    usage_gamemode: "&3Oma &8» &cUsage: /%command% (&bPlayer&c)."
   send:
-    already_world: "&3&lOma &8» &cYou are already in world \"&b%world%&c\"."
-    invalid_world: "&3&lOma &8» &cThe world you have entered is not valid."
-    teleport_world: "&3&lOma &8» &7%target% was teleported to world \"&b%world%&7\"."
-    usage_send: "&3&lOma &8» &cUsage: /send <target> <world>"
+    already_world: "&3Oma &8» &cYou are already in world \"&b%world%&c\"."
+    invalid_world: "&3Oma &8» &cThe world you have entered is not valid."
+    teleport_world: "&3Oma &8» &7%target% was teleported to world \"&b%world%&7\"."
+    usage_send: "&3Oma &8» &cUsage: /send <target> <world>"
   world:
-    world: "&3&lOma &8» &7You were teleported to world \"&b%world%&7\"."
+    world: "&3Oma &8» &7You were teleported to world \"&b%world%&7\"."
   worlds:
-    worlds: "&3&lOma &8» &7Worlds: &b%worlds%&7."
+    worlds: "&3Oma &8» &7Worlds: &b%worlds%&7."
   playerjoin:
-    join: "&3&lOma &8» &7%player% joined."
+    join: "&3Oma &8» &7%player% joined."

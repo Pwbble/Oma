@@ -6,6 +6,11 @@ public enum Message {
     INVALID_TARGET("oma.miscellaneous.invalid_target"),
     NO_CONSOLE("oma.miscellaneous.no_console"),
 
+    EDIT_CONFIG("oma.config.edit_config"),
+    INVALID_PATH("oma.config.invalid_path"),
+    RESET_CONFIG("oma.config.reset_config"),
+    USAGE_CONFIG("oma.config.usage_config"),
+
     DISABLE_FLY("oma.fly.disable_fly"),
     ENABLE_FLY("oma.fly.enable_fly"),
     USAGE_FLY("oma.fly.usage_fly"),

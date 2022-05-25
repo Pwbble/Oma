@@ -14,6 +14,7 @@ public class PlayerJoin implements Listener {
         Player player = event.getPlayer();
 
         event.setJoinMessage(null);
-        MessageHandler.createInstance().sendMessage(Message.JOIN, player);
+        MessageHandler.createInstance().sendBroadcast(Message.JOIN,
+                s -> s.replace("%player%", player.getName()));
     }
 }

@@ -1,7 +1,7 @@
 package com.oma.handlers;
 
 import com.oma.enums.Message;
-import com.oma.miscellaneous.Config;
+import com.oma.miscellaneous.Configuration;
 import com.sun.istack.internal.NotNull;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -10,9 +10,9 @@ import java.util.function.Function;
 public class MessageHandler {
 
     private static MessageHandler Instance;
-    private final Config config;
+    private final Configuration config;
 
-    public MessageHandler(Config config) {
+    public MessageHandler(Configuration config) {
         if (config == null) throw new NullPointerException();
         Instance = this;
         this.config = config;

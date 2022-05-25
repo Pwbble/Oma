@@ -5,13 +5,13 @@ import com.oma.events.*;
 import com.oma.handlers.BuildmodeHandler;
 import com.oma.handlers.GameModeHandler;
 import com.oma.handlers.MessageHandler;
-import com.oma.miscellaneous.Config;
+import com.oma.miscellaneous.Configuration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 
     public static Main main;
-    private Config config;
+    private Configuration config;
 
     @Override
     public void onEnable() {
@@ -23,6 +23,7 @@ public class Main extends JavaPlugin {
 
     private void loadCommands() {
         // getCommand("build").setExecutor(new Build());
+        getCommand("config").setExecutor(new Config());
         // getCommand("createworld").setExecutor(new CreateWorld());
         getCommand("fly").setExecutor(new Fly());
         getCommand("gma").setExecutor(new Gma());
@@ -43,7 +44,7 @@ public class Main extends JavaPlugin {
     }
 
     private void loadFiles() {
-        config = new Config(this, getDataFolder(), "config.yml", "config.yml");
+        config = new Configuration(this, getDataFolder(), "config.yml", "config.yml");
         new BuildmodeHandler();
         new GameModeHandler();
         new MessageHandler(config);

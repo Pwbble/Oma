@@ -3,6 +3,9 @@ author: Pvbble
 version: 1.0
 main: com.oma.Main
 commands:
+  config:
+    usage: config
+    aliases: [configuration]
   fly:
     usage: fly
   gma:

@@ -8,22 +8,30 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Config extends YamlConfiguration {
+public class Configuration extends YamlConfiguration {
 
-    public File f;
-    public JavaPlugin javaPlugin;
+    // Declarations
+    private File file;
+    private JavaPlugin javaPlugin;
+    private static Configuration Instance;
 
-    public Config(JavaPlugin javaPlugin, File path, String s) {
+    public Configuration(JavaPlugin javaPlugin, File path, String s) {
+        Instance = this;
         this.javaPlugin = javaPlugin;
         setup(path, s);
     }
 
-    public Config(JavaPlugin javaPlugin, File path, String s, String def) {
+    public Configuration(JavaPlugin javaPlugin, File path, String s, String def) {
+        Instance = this;
         this.javaPlugin = javaPlugin;
         setup(path, s, def);
     }
 
-    public void loaddefaults(String def) {
+    public static Configuration createInstance() {
+        return Instance;
+    }
+
+    public void loadDefaults(String def) {
         load();
         InputStream is = this.javaPlugin.getResource(def);
         if (is != null) {
@@ -38,10 +46,10 @@ public class Config extends YamlConfiguration {
 
     public boolean setup(File path, String s) {
         path.mkdirs();
-        this.f = new File(path, (s.endsWith(".yml")) ? s : s + ".yml");
-        if (!this.f.exists()) {
+        this.file = new File(path, (s.endsWith(".yml")) ? s : s + ".yml");
+        if (!this.file.exists()) {
             try {
-                this.f.createNewFile();
+                this.file.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -53,12 +61,12 @@ public class Config extends YamlConfiguration {
     }
 
     public void setup(File path, String s, String def) {
-        if (setup(path, s)) loaddefaults(def);
+        if (setup(path, s)) loadDefaults(def);
     }
 
     public void load() {
         try {
-            super.load(f);
+            super.load(file);
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
@@ -72,9 +80,9 @@ public class Config extends YamlConfiguration {
 
     public void save() {
         try {
-            save(this.f);
-        } catch (IOException e) {
-            e.printStackTrace();
+            save(this.file);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
     }
 }
