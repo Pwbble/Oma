@@ -1,13 +1,16 @@
 oma:
   miscellaneous:
+    coming_soon: "&3Oma &8» &cThis feature has not yet been implemented."
     invalid_permission: "&3Oma &8» &cYou do not have permission to execute this command."
     invalid_target: "&3Oma &8» &cThe player you have entered is not online."
     no_console: "&3Oma &8» &cYou cannot execute this command in console."
   config:
-    edit_config: "&3Oma &8» &7The configuration message at %path% has been updated to %string%."
+    edit_config: "&3Oma &8» &7The configuration message you entered has been modified."
     invalid_path: "&3Oma &8» &cThe path you have entered is not valid."
-    reset_config: "&3Oma &8» &7The configuration file has been reset."
-    usage_config: "&3Oma &8» &cUsage: /config <reload | edit> [edit:<path> <updated message>]."
+    list_paths: "&3Oma &8» &7Configuration Paths:\n\n&b%paths%&7."
+    reset_config: "&3Oma &8» &7The configuration has been reset to default values."
+    usage_config: "&3Oma &8» &cUsage: /config <reset | edit> [edit:<path> <updated message>]."
+    view_path: "&8\"&f%path%&8\""
   fly:
     disable_fly: "&3Oma &8» &7Your flight has been &cdisabled&7."
     enable_fly: "&3Oma &8» &7Your flight has been &aenabled&7."

@@ -2,14 +2,17 @@ package com.oma.enums;
 
 public enum Message {
 
+    COMING_SOON("oma.miscellaneous.coming_soon"),
     INVALID_PERMISSION("oma.miscellaneous.invalid_permission"),
     INVALID_TARGET("oma.miscellaneous.invalid_target"),
     NO_CONSOLE("oma.miscellaneous.no_console"),
 
     EDIT_CONFIG("oma.config.edit_config"),
     INVALID_PATH("oma.config.invalid_path"),
+    LIST_PATHS("oma.config.list_paths"),
     RESET_CONFIG("oma.config.reset_config"),
     USAGE_CONFIG("oma.config.usage_config"),
+    VIEW_PATH("oma.config.view_path"),
 
     DISABLE_FLY("oma.fly.disable_fly"),
     ENABLE_FLY("oma.fly.enable_fly"),
