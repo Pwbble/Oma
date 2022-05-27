@@ -16,6 +16,8 @@ public enum Message {
 
     DISABLE_FLY("oma.fly.disable_fly"),
     ENABLE_FLY("oma.fly.enable_fly"),
+    TARGET_DISABLE_FLY("oma.fly.target_disable_fly"),
+    TARGET_ENABLE_FLY("oma.fly.target_enable_fly"),
     USAGE_FLY("oma.fly.usage_fly"),
 
     ALREADY_GAMEMODE("oma.gamemode.already_gamemode"),

@@ -21,6 +21,13 @@ public class Main extends JavaPlugin {
         loadFiles();
     }
 
+    private void loadFiles() {
+        config = new Configuration(this, getDataFolder(), "config.yml", "config.yml");
+        new BuildmodeHandler();
+        new GameModeHandler();
+        new MessageHandler(config);
+    }
+
     private void loadCommands() {
         // getCommand("build").setExecutor(new Build());
         getCommand("config").setExecutor(new Config());
@@ -41,12 +48,5 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerGameModeChange(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getServer().getPluginManager().registerEvents(new PlayerQuit(), this);
-    }
-
-    private void loadFiles() {
-        config = new Configuration(this, getDataFolder(), "config.yml", "config.yml");
-        new BuildmodeHandler();
-        new GameModeHandler();
-        new MessageHandler(config);
     }
 }
