@@ -16,13 +16,13 @@ public class Send implements CommandExecutor {
         // If [Player] sender doesn't have permission to run /send
         if (!(sender.hasPermission("oma.command.world") || sender.hasPermission("oma.*")))
             return MessageHandler.createInstance().sendMessage(Message.INVALID_PERMISSION, sender);
-        // If arg[0:1] are missing
+        // If arg[0:1] are missing (0:1 means 0 through 1, stole that from python)
         if (arg.length < 2) return MessageHandler.createInstance().sendMessage(Message.USAGE_SEND, sender);
         Player target = Bukkit.getPlayer(arg[0]);
         World world = Bukkit.getWorld(arg[1]);
         if (target == null || world == null)
-            return (target == null) ? MessageHandler.createInstance().sendMessage(Message.INVALID_TARGET, sender) :
-                    MessageHandler.createInstance().sendMessage(Message.INVALID_WORLD, sender);
+            return MessageHandler.createInstance().sendMessage((target == null) ?
+                    Message.INVALID_TARGET : Message.INVALID_WORLD, sender);
         if (target.getWorld() == world)
             return MessageHandler.createInstance().sendMessage(Message.ALREADY_WORLD,
                     s -> s.replace("%world%", world.toString()), sender);
