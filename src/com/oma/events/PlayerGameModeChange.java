@@ -1,6 +1,6 @@
 package com.oma.events;
 
-import com.oma.handlers.BuildmodeHandler;
+import com.oma.handlers.BuildModeHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,7 +12,7 @@ public class PlayerGameModeChange implements Listener {
     public void onEvent(PlayerGameModeChangeEvent event) {
         Player player = event.getPlayer();
 
-        if (BuildmodeHandler.createInstance().listContains(player))
-            BuildmodeHandler.createInstance().toggleOff(player);
+        if (BuildModeHandler.createInstance().listContains(player))
+            BuildModeHandler.createInstance().setSelfBuildMode(player);
     }
 }

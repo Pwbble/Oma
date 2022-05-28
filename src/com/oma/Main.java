@@ -2,8 +2,9 @@ package com.oma;
 
 import com.oma.commands.*;
 import com.oma.events.*;
-import com.oma.handlers.BuildmodeHandler;
+import com.oma.handlers.BuildModeHandler;
 import com.oma.handlers.GameModeHandler;
+import com.oma.handlers.InventoryHandler;
 import com.oma.handlers.MessageHandler;
 import com.oma.miscellaneous.Configuration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,15 +22,21 @@ public class Main extends JavaPlugin {
         loadFiles();
     }
 
+    @Override
+    public void onDisable() {
+
+    }
+
     private void loadFiles() {
         config = new Configuration(this, getDataFolder(), "config.yml", "config.yml");
-        new BuildmodeHandler();
+        new BuildModeHandler();
         new GameModeHandler();
+        new InventoryHandler();
         new MessageHandler(config);
     }
 
     private void loadCommands() {
-        // getCommand("build").setExecutor(new Build());
+        getCommand("buildmode").setExecutor(new BuildMode());
         getCommand("config").setExecutor(new Config());
         // getCommand("createworld").setExecutor(new CreateWorld());
         getCommand("fly").setExecutor(new Fly());
@@ -43,6 +50,7 @@ public class Main extends JavaPlugin {
     }
 
     private void loadEvents() {
+        getServer().getPluginManager().registerEvents(new AsyncPlayerChat(), this);
         getServer().getPluginManager().registerEvents(new BlockBreak(), this);
         getServer().getPluginManager().registerEvents(new BlockPlace(), this);
         getServer().getPluginManager().registerEvents(new PlayerGameModeChange(), this);

@@ -5,10 +5,16 @@ oma:
     invalid_target: "&3Oma &8» &cThe player you have entered is not online."
     no_console: "&3Oma &8» &cYou cannot execute this command in console."
   config:
-    edit_config: "&3Oma &8» &7The message at the config path you entered has been modified.\n\n&c&oNote &8» &7&oYou may have to reload the plugin for the modified effects to sync in."
+    edit_config:
+      - '&3Oma &8» &7The message at the config path you entered has been modified.'
+      - '&c&oNote &8» &7&oYou may have to reload the plugin for the modified effects to sync in.'
     invalid_path: "&3Oma &8» &cThe path you have entered is not valid."
-    list_paths: "&3Oma &8» &7Configuration Paths:\n\n&b%paths%&7."
-    reset_config: "&3Oma &8» &7The configuration has been reset to default values.\n\n&c&oNote &8» &7&oYou may have to reload the plugin for the modified effects to sync in."
+    list_paths:
+      - '&3Oma &8» &7Configuration Paths:'
+      - '&b%paths%&7.'
+    reset_config:
+      - '&3Oma &8» &7The configuration has been reset to default values.'
+      - '&c&oNote &8» &7&oYou may have to reload the plugin for the modified effects to sync in.'
     usage_config: "&3Oma &8» &cUsage: /config [&bedit &c| &blist &c| &breload &c| &breset &c| &bview&c] edit:<path> <new message> list:(&bsection&c) view:<path>."
     view_path: "&8\"&f%path%&8\""
   fly:
@@ -16,13 +22,13 @@ oma:
     enable_fly: "&3Oma &8» &7Your flight has been &aenabled&7."
     target_disable_fly: "&3Oma &8» &7%target%'s flight has been &cdisabled&7."
     target_enable_fly: "&3Oma &8» &7%target%'s flight has been &aenabled&7."
-    usage_fly: "&3Oma &8» &cUsage: /fly (&bPlayer&c)."
+    usage_fly: "&3Oma &8» &cUsage: /fly (&btarget&c)."
   gamemode:
     already_gamemode: "&3Oma &8» &cYou are already in gamemode %gamemode%."
     target_already_gamemode: "&3Oma &8» &c%target% is already in gamemode %gamemode%."
     target_update_gamemode: "&3Oma &8» &7%target%s gamemode has been set to %gamemode%."
     update_gamemode: "&3Oma &8» &7Your gamemode has been set to %gamemode%."
-    usage_gamemode: "&3Oma &8» &cUsage: /%command% (&bPlayer&c)."
+    usage_gamemode: "&3Oma &8» &cUsage: /%command% (&btarget&c)."
   send:
     already_world: "&3Oma &8» &cYou are already in world \"&b%world%&c\"."
     invalid_world: "&3Oma &8» &cThe world you have entered is not valid."
@@ -34,4 +40,3 @@ oma:
     worlds: "&3Oma &8» &7Worlds: &b%worlds%&7."
   playerjoin:
     join: "&3Oma &8» &7%player% joined."
-  buildmode:

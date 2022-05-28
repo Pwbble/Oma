@@ -33,16 +33,16 @@ public enum Message {
 
     WORLDS("oma.worlds.worlds"),
 
-    JOIN("oma.playerjoin.join"),
-    ;
+    JOIN("oma.playerjoin.join");
 
-    Message(String configurationPath) { // Adds arguments to any enum in this class.
-        this.path = configurationPath; // Sets (final String) path to configurationPath.
+    // Constructor which allows enums to hold a (String) configurationPath
+    Message(String configurationPath) { // Adds arguments to any enum in this class
+        this.path = configurationPath; // Sets (final String) path to configurationPath
     }
 
     private final String path;
 
     public String getPath() {
-        return path; // Returns a (final String) path declared as configurationPath.
+        return path; // Returns a (final String) path declared as configurationPath
     }
 }

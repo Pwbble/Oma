@@ -20,13 +20,9 @@ public class Config implements CommandExecutor {
                 default:
                     return MessageHandler.createInstance().sendMessage(Message.USAGE_CONFIG, sender);
                 case "edit": // Usage: /config edit <arg[1]:String path> <arg[2]:String updated_message>
-                    if (!(sender.hasPermission("Oma.command.config_edit") || sender.hasPermission("Oma.*"))) ;
+                    if (!(sender.hasPermission("Oma.command.config_edit") || sender.hasPermission("Oma.*")));
                     if (Main.main.getConfig().getString(arg[1]) == null)
                         return MessageHandler.createInstance().sendMessage(Message.INVALID_PATH, sender);
-                    if (arg.length == 2) { // Temporary, full implementation of this isn't set up
-                        Main.main.getConfig().set(arg[1], ((Player) sender).getInventory());
-                        return true;
-                    }
                     StringBuilder eval = new StringBuilder();
                     for (int a = 2; a < arg.length; a++) eval.append(arg[a]).append(' ');
                     Main.main.getConfig().set(arg[1], eval.toString());

@@ -1,26 +1,26 @@
 package com.oma.commands;
 
 import com.oma.enums.Message;
-import com.oma.handlers.GameModeHandler;
+import com.oma.handlers.BuildModeHandler;
 import com.oma.handlers.MessageHandler;
 import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Gmsp implements CommandExecutor {
-    // Usage: /gmsp (arg[0]:Player)
+public class BuildMode implements CommandExecutor {
+    // Usage: /build (arg[0]:Player target)
     @Override
     public boolean onCommand(CommandSender sender, Command command, String string, String[] arg) {
-        if (!(sender.hasPermission("Oma.command.gamemode_spectator") || sender.hasPermission("Oma.*")))
+        if (!(sender.hasPermission("Oma.command.gamemode_buildmode") || sender.hasPermission("Oma.*")))
             return MessageHandler.createInstance().sendMessage(Message.INVALID_PERMISSION, sender);
-        // If arg[0] is null. ex: /gmsp
+        // If arg[0] is null. ex: /buildmode
         if (arg.length == 0) return (!(sender instanceof Player)) ?
                 MessageHandler.createInstance().sendMessage(Message.USAGE_GAMEMODE,
-                        s -> s.replace("%command%", string), sender) : GameModeHandler.createInstance().setSelfGameMode((Player) sender, GameMode.SPECTATOR);
-        // If arg[0] is specified. ex: /gmsp Pvbble
-        return GameModeHandler.createInstance().setTargetGameMode(sender, Bukkit.getServer().getPlayer(arg[0]), GameMode.SPECTATOR);
+                        s -> s.replace("%command%", string), sender) :
+                BuildModeHandler.createInstance().setSelfBuildMode((Player) sender);
+        // If arg[0] is specified. ex: /buildmode Pvbble
+        return BuildModeHandler.createInstance().setTargetBuildMode(sender, Bukkit.getServer().getPlayer(arg[0]));
     }
 }

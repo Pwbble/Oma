@@ -17,12 +17,9 @@ public class Gms implements CommandExecutor {
         if (!(sender.hasPermission("Oma.command.gamemode_survival") || sender.hasPermission("Oma.*")))
             return MessageHandler.createInstance().sendMessage(Message.INVALID_PERMISSION, sender);
         // If arg[0] is null. ex: /gms
-        if (arg.length == 0) {
-            if (!(sender instanceof Player))
-                return MessageHandler.createInstance().sendMessage(Message.USAGE_GAMEMODE,
-                        s -> s.replace("%command%", string), sender);
-            return GameModeHandler.createInstance().setSelfGameMode((Player) sender, GameMode.SURVIVAL);
-        }
+        if (arg.length == 0) return (!(sender instanceof Player)) ?
+                MessageHandler.createInstance().sendMessage(Message.USAGE_GAMEMODE,
+                        s -> s.replace("%command%", string), sender) : GameModeHandler.createInstance().setSelfGameMode((Player) sender, GameMode.SURVIVAL);
         // If arg[0] is specified. ex: /gms Pvbble
         return GameModeHandler.createInstance().setTargetGameMode(sender, Bukkit.getPlayer(arg[0]), GameMode.SURVIVAL);
     }
