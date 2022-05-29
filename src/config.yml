@@ -39,4 +39,4 @@ oma:
   worlds:
     worlds: "&3Oma &8» &7Worlds: &b%worlds%&7."
   playerjoin:
-    join: "&3Oma &8» &7%player% joined."
+    join: "&7%player% joined."

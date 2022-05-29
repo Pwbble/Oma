@@ -17,7 +17,7 @@ public class ItemStackSerializer {
      * @param items List of {@link ItemStack}'s to be serialized.
      * @return A serialized {@link ItemStack} list.
      */
-    public String itemStackSerialization(ItemStack... items) {
+    public String serializer(ItemStack... items) {
         try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             BukkitObjectOutputStream boos = new BukkitObjectOutputStream(baos);
@@ -38,7 +38,7 @@ public class ItemStackSerializer {
      * @param base64 Serialized string to be deserialized.
      * @return A deserialized {@link ItemStack} list.
      */
-    public ItemStack[] itemStackDeserialization(String base64) {
+    public ItemStack[] deserializer(String base64) {
         try {
             ByteArrayInputStream bais = new ByteArrayInputStream(Base64.getDecoder().decode(base64));
             BukkitObjectInputStream bois = new BukkitObjectInputStream(bais);

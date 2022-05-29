@@ -25,10 +25,10 @@ public class Send implements CommandExecutor {
                     Message.INVALID_TARGET : Message.INVALID_WORLD, sender);
         if (target.getWorld() == world)
             return MessageHandler.createInstance().sendMessage(Message.ALREADY_WORLD,
-                    s -> s.replace("%world%", world.toString()), sender);
+                    s -> s.replace("%world%", world.getName()), sender);
         target.teleport(world.getSpawnLocation());
         return MessageHandler.createInstance().sendMessage(Message.TELEPORT_WORLD,
                 s -> s.replace("%target%", target.getName())
-                        .replace("%world%", world.toString()), sender);
+                        .replace("%world%", world.getName()), sender);
     }
 }

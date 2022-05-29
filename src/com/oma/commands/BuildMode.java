@@ -19,7 +19,7 @@ public class BuildMode implements CommandExecutor {
         if (arg.length == 0) return (!(sender instanceof Player)) ?
                 MessageHandler.createInstance().sendMessage(Message.USAGE_GAMEMODE,
                         s -> s.replace("%command%", string), sender) :
-                BuildModeHandler.createInstance().setSelfBuildMode((Player) sender);
+                BuildModeHandler.createInstance().setSelfBuildMode((Player) sender, true);
         // If arg[0] is specified. ex: /buildmode Pvbble
         return BuildModeHandler.createInstance().setTargetBuildMode(sender, Bukkit.getServer().getPlayer(arg[0]));
     }
